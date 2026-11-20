@@ -1,0 +1,257 @@
+:root {
+  --bg: #000;
+  --bar: #1a1611;
+  --bar-edge: #3a2f22;
+  --text: #e9e4d6;
+  --muted: #8d8a82;
+  --digit: #e0a446;
+  --low: #ff5a3c;
+  --font: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+}
+
+#view,
+#weapon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+#flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+#messages {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-shadow: 0 1px 0 #000;
+  pointer-events: none;
+}
+
+#hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) 1.2fr;
+  background: var(--bar);
+  border-top: 2px solid var(--bar-edge);
+  pointer-events: none;
+}
+
+#hud .cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--bar-edge);
+}
+
+#hud .value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--digit);
+  line-height: 1;
+}
+
+#hud .value.low {
+  color: var(--low);
+}
+
+#hud .label {
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+#hud .arms b {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #3b3c3f;
+}
+
+#hud .arms b.owned {
+  color: var(--text);
+}
+
+#hud .arms b.current {
+  color: var(--digit);
+}
+
+#hud .keys i {
+  display: inline-block;
+  width: 16px;
+  height: 22px;
+  margin: 0 3px;
+  border: 2px solid #3b3c3f;
+}
+
+#hud .keys i.has {
+  background: #2fae9c;
+  border-color: #4fe3d0;
+}
+
+#hud .reserve {
+  font-size: 13px;
+  color: var(--muted);
+  flex-direction: row;
+  gap: 14px;
+  border-right: 0;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.72);
+  cursor: pointer;
+}
+
+#overlay.show {
+  display: flex;
+}
+
+#overlay.dim {
+  background: rgba(60, 0, 0, 0.55);
+}
+
+.panel {
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: clamp(44px, 10vw, 84px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--digit);
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-size: 26px;
+}
+
+.tagline {
+  margin: 8px 0 28px;
+  color: var(--muted);
+}
+
+.go {
+  font: inherit;
+  font-size: 18px;
+  padding: 12px 28px;
+  color: #000;
+  background: var(--digit);
+  border: 0;
+  cursor: pointer;
+}
+
+.controls,
+.stats {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 6px 18px;
+  justify-content: center;
+  margin: 28px 0 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.controls dt,
+.stats dt {
+  color: var(--digit);
+  text-align: right;
+}
+
+.controls dd,
+.stats dd {
+  margin: 0;
+}
+
+.stats {
+  font-size: 20px;
+  margin: 0 0 24px;
+}
+
+.links {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.links a {
+  color: var(--text);
+}
+
+.links span {
+  margin: 0 8px;
+}
+
+@media (max-width: 640px) {
+  #hud {
+    height: 52px;
+  }
+  #hud .value {
+    font-size: 20px;
+  }
+  #hud .reserve {
+    display: none;
+  }
+  #hud {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.tip {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+}

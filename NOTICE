@@ -1,0 +1,18 @@
+Strata
+Copyright (c) 2026 Ciro Cesar Maciel. MIT License.
+
+Third-party software
+--------------------
+
+three.js r170 (https://threejs.org), MIT License, Copyright (c) 2010-2024
+three.js authors. Loaded at run time from cdn.jsdelivr.net; not stored in
+this repository.
+
+Everything else
+---------------
+
+All code, textures, models, sounds, levels, names and characters in this
+repository were made for it. src/audio.js is shared with Sublevel
+(github.com/ciro-maciel/sublevel), by the same author, under the same license. No code or asset from any other game is
+included. docs/ENGINE.md describes the design of the 1996-era 3D shooter
+engines in its own words, as a study.

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Strata</title>
+    <meta name="description" content="An original 3D first-person shooter in plain JavaScript and three.js. No build step, no assets: every texture, model and sound is made in code." />
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">
+      { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+    </script>
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="view"></canvas>
+      <div id="flash"></div>
+      <div id="crosshair"></div>
+      <div id="messages"></div>
+      <div id="hud"></div>
+      <div id="overlay"></div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
